@@ -13,7 +13,7 @@ const drawError = (msg) => {
         `
         *******************************************************
         |                                                     |
-        |                \x1b[31mError:\x1b[0m: Invalid input.               |
+        |                \x1b[31mError:\x1b[0m Invalid input.                |
         |                                                     |
         |${leftBorder}${msg}${rightBorder}|
         |                                                     |

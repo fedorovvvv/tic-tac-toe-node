@@ -3,6 +3,7 @@ import { drawBoard, initBoard } from './board/board.js';
 import { checkConditions } from './logic/conditionsLogic.js';
 import { changePlayer } from './logic/changePlayerLogic.js';
 import * as dotenv from 'dotenv';
+import drawError from './utils/drawError.js';
 
 dotenv.config();
 
@@ -21,7 +22,7 @@ const gameLoop = () => {
     rlInstance.question(`${' '.repeat(8)}Print the row and the column for your sign (row, column): `, (ans) => {
         const [row, column] = ans.split(',');
 
-        const isConditions = checkConditions(row, column);
+        const isConditions = checkConditions(row, column, board);
 
         if ( isConditions ) {
           board[+row - 1][+column - 1] = currentPlayer;
@@ -30,7 +31,7 @@ const gameLoop = () => {
         } else {
           setTimeout(() => {
             gameLoop()
-          }, 9000)
+          }, 5000)
         }
     })  
 }
