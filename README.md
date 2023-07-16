@@ -6,7 +6,7 @@ This is a simple command-line implementation of the game Tic-Tac-Toe using Node.
 1. Clone the repository:
 
 `git clone https://github.com/your-username/tic-tac-toe-node.git`
-or
+
 `git clone git@github.com:IvanLivshits/tic-tac-toe-node.git`
 
 2. Navigate to the project directory:
