@@ -4,10 +4,15 @@ export const initBoard = () => {
     return board;
 }
 
-export const drawBoard = (board) => { 
+export const drawBoard = (board) => {
     console.clear();
-    board.map((row) => {
-        console.log(row.join(' | '));
-        console.log('---------')
-    })
-}
+    console.log();
+    board.forEach((row, index) => {
+      console.log(' '.repeat(8) + row.join(' | '));
+      if (index < board.length - 1) {
+        console.log(' '.repeat(8) + '---------');
+      }
+    });
+    console.log();
+  };
+  

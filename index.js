@@ -18,7 +18,7 @@ const rlInstance = rl.createInterface({
 const gameLoop = () => {
     drawBoard(board);
 
-    rlInstance.question('Print the row and the column for your sign (row, column): ', (ans) => {
+    rlInstance.question(`${' '.repeat(8)}Print the row and the column for your sign (row, column): `, (ans) => {
         const [row, column] = ans.split(',');
 
         const isConditions = checkConditions(row, column);
@@ -30,7 +30,7 @@ const gameLoop = () => {
         } else {
           setTimeout(() => {
             gameLoop()
-          }, 10000)
+          }, 9000)
         }
     })  
 }
