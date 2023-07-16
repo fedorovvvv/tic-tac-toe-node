@@ -16,7 +16,6 @@ const rlInstance = rl.createInterface({
   });
 
 const gameLoop = () => {
-
     drawBoard(board);
 
     rlInstance.question('Print the row and the column for your sign (row, column): ', (ans) => {
@@ -28,6 +27,10 @@ const gameLoop = () => {
           board[+row - 1][+column - 1] = currentPlayer;
           currentPlayer = changePlayer(currentPlayer);
           gameLoop();
+        } else {
+          setTimeout(() => {
+            gameLoop()
+          }, 10000)
         }
     })  
 }
