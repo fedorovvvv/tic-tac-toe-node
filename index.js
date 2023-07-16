@@ -2,10 +2,13 @@ import * as rl from 'readline';
 import { drawBoard, initBoard } from './board/board.js';
 import { checkConditions } from './logic/conditionsLogic.js';
 import { changePlayer } from './logic/changePlayerLogic.js';
+import * as dotenv from 'dotenv';
+
+dotenv.config();
 
 const board = initBoard();
 
-let currentPlayer = 'X'
+let currentPlayer = process.env.FIRST_PLAYER;
 
 const rlInstance = rl.createInterface({
     input: process.stdin,
