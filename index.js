@@ -29,6 +29,8 @@ const gameLoop = () => {
     console.log(' '.repeat(8) + `Player with sign '${changePlayer(currentPlayer)}' won!`);
     rlInstance.question(`${' '.repeat(8)}Do you wanna play again? y/n: `, (ans) => {
       if (ans == 'y') {
+        counter = 0;
+        currentPlayer = process.env.FIRST_PLAYER;
         board = initBoard();
         gameLoop();
       } else {
