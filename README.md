@@ -1,4 +1,4 @@
-![image](https://github.com/IvanLivshits/tic-tac-toe-node/assets/92804421/47962a1e-495d-43c3-9971-53f151015030)# Tic-Tac-Toe NodeJS
+# Tic-Tac-Toe NodeJS
 
 This is a simple command-line implementation of the game Tic-Tac-Toe using Node.js.
 
