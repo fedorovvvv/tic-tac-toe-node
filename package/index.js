@@ -10,7 +10,7 @@ export class TicTacToe {
     currentPlayer = CONFIG.FIRST_PLAYER
     on
     tickCallback
-    constructor({on, tickCallback}) {
+    constructor({on, tickCallback} = {}) {
       this.board = initBoard()
       this.on = on
       this.tickCallback = tickCallback
