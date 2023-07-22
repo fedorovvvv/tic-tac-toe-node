@@ -24,7 +24,7 @@ This is a simple command-line implementation of the game Tic-Tac-Toe using Node.
 ### Usage
 To start the game, run the following command:
 
-`node index.js`
+`npm run play`
 
 Follow the prompts to enter your moves and play the game. The game will display the board and ask you to enter the row and column for your move. The board will be updated accordingly, and the game will continue until a winner is determined or the game ends in a draw.
 
