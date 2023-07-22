@@ -2,6 +2,24 @@ import isInteger from "../utils/isInt.js";
 import drawError from "../utils/drawError.js";
 
 export const checkConditions = (row, column, board) => {
+    if ( !row || !column ) {
+        const msg = 'Insert numbers';
+        drawError(msg);
+        return {
+            status: false,
+            msg
+        }
+    }
+
+    if ( board[+row - 1]?.[+column - 1] && board[+row - 1]?.[+column - 1] !== ' ' ) {
+        const msg = 'This cell is filled';
+        drawError(msg);
+        return {
+            status: false,
+            msg
+        };
+    };
+
     if (row > 3 || column > 3) {
         const msg = 'Please enter numbers from 1 to 3.';
         drawError(msg);
