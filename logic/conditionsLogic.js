@@ -46,6 +46,15 @@ export const checkConditions = (row, column, board) => {
             msg
         };
     }
+
+    if ( board[+row - 1]?.[+column - 1] !== ' ' ) {
+        const msg = 'This cell is filled';
+        drawError(msg);
+        return {
+            status: false,
+            msg
+        };
+    };
   
     return {
         status: true,
