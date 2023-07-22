@@ -2,7 +2,7 @@ import isInteger from "../utils/isInt.js";
 import drawError from "../utils/drawError.js";
 
 export const checkConditions = (row, column, board) => {
-    if ( board[+row - 1][+column - 1] !== ' ' ) {
+    if ( board[+row - 1]?.[+column - 1] !== ' ' ) {
         const msg = 'This cell is filled';
         drawError(msg);
         return {
