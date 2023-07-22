@@ -40,18 +40,23 @@ export class TicTacToe {
   }
   play() {
     this.on?.play?.(this)
-    this.tick()
+    return this.tick()
   }
   print([row,col]) {
     const isConditions = checkConditions(row, col, this.board)
-    if (isConditions) {
+    if (isConditions.status) {
       this.board[Number(row) - 1][Number(col) - 1] = this.currentPlayer;
       this.changePlayer()
     } else {
       setTimeout(() => this.tick(), 5000);
-      return;
+      return {
+        error: isConditions,
+      };
     }
-    this.tick()
+    return {
+      error: isConditions,
+      tickResult: this.tick()
+    }
   }
   tick() {
     this.on?.startTick?.(this)
@@ -65,12 +70,15 @@ export class TicTacToe {
     }
 
     this.setCounter(this.counter + 1)
+
     if (this.tickCallback) {
+      this.on?.endTick?.(this)
       return this.tickCallback?.(this)
     }
-    return (([row, col]) => {
+    this.on?.endTick?.(this)
+    return ([row, col]) => {
       this.print([row, col])
-    })
+    }
   }
 }
 
