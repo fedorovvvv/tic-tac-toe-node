@@ -52,7 +52,18 @@ export class TicTacToe {
       this.reset()
       this.on?.win?.(this, winData)
     }
+    draw() {
+      console.log(' '.repeat(8) + 'Draw!')
+      const next = () => {
+        this.play()
+      }
+      const drawData = {
+        next: next.bind(this)
+      }
+      this.on?.draw?.(this, drawData)
+    }
     play() {
+      this.reset()
       this.on?.play?.(this)
       return this.tick()
     }
@@ -84,8 +95,7 @@ export class TicTacToe {
         this.win()
         return
       } else if (this.counter === 9) {
-        this.on?.draw?.(this)
-        console.log(' '.repeat(8) + 'Draw!')
+        this.draw()
         return
       }
   
