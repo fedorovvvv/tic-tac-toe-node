@@ -78,7 +78,8 @@ export class TicTacToe {
     }
     tick() {
       this.on?.startTick?.(this)
-      
+      this.setCounter(this.board.flat().reduce((val, cur) => val + (cur === ' ' ? 0 : 1),0))
+      console.log(this.counter)
       if (this.counter >= 5 && isWin(this.board)) {
         this.win()
         return
@@ -88,7 +89,6 @@ export class TicTacToe {
         return
       }
   
-      this.setCounter(this.counter + 1)
   
       if (this.tickCallback) {
         this.on?.endTick?.(this)
